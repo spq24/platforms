@@ -29,7 +29,7 @@ export default function middleware(req: NextRequest) {
     process.env.NODE_ENV === "production" && process.env.VERCEL === "1"
       ? hostname
           .replace(`.vercel.pub`, "")
-          .replace(`.platformize.vercel.app`, "")
+          .replace(`.kinertia.vercel.app`, "")
       : hostname.replace(`.localhost:3000`, "");
 
   // rewrites for app pages
@@ -48,7 +48,7 @@ export default function middleware(req: NextRequest) {
   }
 
   // rewrite root application to `/home` folder
-  if (hostname === "localhost:3000" || hostname === "platforms-test-eight.vercel.app") {
+  if (hostname === "localhost:3000" || hostname === "kinertia.vercel.app") {
     url.pathname = `/home${url.pathname}`;
     return NextResponse.rewrite(url);
   }
